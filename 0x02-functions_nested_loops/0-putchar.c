@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * *main - Entry point
+ * main - Entry point
  * Description: prints '_putcher\n'
  * Return: Always 0
  */
