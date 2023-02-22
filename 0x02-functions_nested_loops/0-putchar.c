@@ -6,15 +6,14 @@
  */
 int main(void)
 {
-	char str[] = "_putcher";
-	int i = 0;
-
-	while (str[i] != '\0')
-	{
-		char c = str[i];
-
-		_putcher(c);
-		i++;
-	}
+	_putcher('_');
+	_putcher('p');
+	_putcher('u');
+	_putcher('t');
+	_putcher('c');
+	_putcher('h');
+	_putcher('e');
+	_putcher('r');
+	_putcher('\n');
 	return (0);
 }
