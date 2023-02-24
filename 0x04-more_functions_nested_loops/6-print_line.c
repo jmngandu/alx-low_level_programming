@@ -2,26 +2,19 @@
 #include "main.h"
 
 /**
- * print_diagonal - draws a diagonal line on the terminal.
- * @n: The number of \ characters to be printed.
+ * print_line - draws a straight line in the terminal.
+ * @n: The number of _ characters to be printed.
  */
 
-void print_diagonal(int n)
+void print_line(int n)
 {
-	int line, spaces;
+	int line;
 
 	if (n > 0)
 	{
 		for (line = 0; line < n; line++)
 		{
-			for (spaces = 0; spaces < line; spaces++)
-			{
-				putchar(' ');
-			}
-			putchar('\\');
-			if (line == n - 1)
-				continue;
-			putchar('\n');
+			putchar('_');
 		}
 	}
 	putchar('\n');
