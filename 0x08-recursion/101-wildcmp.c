@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 
 /* Solution credit goes to Arthur Damm, cohort 8. */
 
