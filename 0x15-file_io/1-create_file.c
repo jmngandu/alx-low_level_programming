@@ -1,41 +1,37 @@
-#include <main.h>
-
+#include "main.h"
 /**
- * _strlen - finds the length of a string
- * @str: pointer to the string
- *
- * Return: length of the string
+ * create_file - create a file named filename
+ * @filename: name of the file
+ * @text_content: a NULL terminated string to write to the file
+ * Return: 1 on success, -1 on failure (file can not be created,
+ * file can not be written, write “fails”, etc…)
  */
-size_t _strlen(char *str)
-{
-	size_t i;
 
-	for (i = 0; str[i]; i++)
-		;
-	return (i);
-}
-
-/**
- * create_file - creates a file.
- * @filename: name of the file to create
- * @text_content: NULL terminated string to write to the file
- *
- * Return: 1 on success, -1 on failure
- */
 int create_file(const char *filename, char *text_content)
 {
-	int fd;
-	ssize_t len = 0;
+	register int _file, _write, text_len = 0;
 
-	if (filename == NULL)
+	if (!(filename))
+	{
 		return (-1);
-	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
-	if (fd == -1)
+	}
+	_file = open(filename, O_RDWR | O_CREAT | O_TRUNC, 0600);
+	if (_file == -1)
+	{
 		return (-1);
-	if (text_content != NULL)
-		len = write(fd, text_content, _strlen(text_content));
-	close(fd);
-	if (len == -1)
-		return (-1);
+	}
+	if (text_content)
+	{
+		while (text_content[text_len])
+		{
+			text_len++;
+		}
+		_write = write(_file, text_content, text_len);
+		if (_write == -1)
+		{
+			return (-1);
+		}
+	}
+	close(_file);
 	return (1);
 }
